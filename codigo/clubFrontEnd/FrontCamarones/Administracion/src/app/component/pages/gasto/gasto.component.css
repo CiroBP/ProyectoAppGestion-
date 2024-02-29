@@ -1,0 +1,119 @@
+main{
+
+height: 150%;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+  }
+
+/* ubicacion form*/
+.mb-5form{
+    width: 100%;
+    display: flex;
+}
+
+.form-principal{
+    max-width: 40%;
+}
+.restante {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    height: 20%;
+}
+.row.mb-3, .opciones {
+    width: 50%;
+    margin-bottom: 20px; /* Ajusta según tus necesidades */
+}
+
+/* diseños form*/
+
+.form-principal{
+    background-color: rgba(97, 91, 91, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    font-weight: bold;
+    color: white;
+    padding-left: 30px;
+}
+
+.restante{
+    margin-top: 40px;
+    background-color: rgba(97, 91, 91, 0.8);
+    max-width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.opciones .row.mb-3{
+    width: 100%;
+}
+.opciones {
+    width: 100%;
+}
+.opcion{
+    padding: 10px;
+}
+.opcion .btn-primary{
+    margin-left: 20px;
+    
+}
+.col.item{
+    height: auto;
+}
+
+
+/*tabla*/
+.col-tabla{
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+  }
+.table {
+    background-color: rgba(97, 91, 91, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; /* Borde sutil */
+}
+
+.table tbody tr:hover {
+    background-color: #585252; /* Color de fondo al pasar el mouse*/
+}
+
+/*boton*/
+.btn-primary {
+    background-color: #3c7373; /* Verde */
+    color: white;
+    border: 2px solid #3c7373;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #F2C029; 
+    color: black;
+}
+.btn-secondary{
+    padding: 5px 10px;
+    background-color: #3c7373;
+    border-radius: 5px;
+    color: white;
+}
+.btn-secondary:hover{
+    background-color: #F2C029; 
+    color: black;
+}
+

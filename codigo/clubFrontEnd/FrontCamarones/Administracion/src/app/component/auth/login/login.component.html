@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.component.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Usuario" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Contraseña" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label ><input type="checkbox">Recuerdame</label>
+                <a href="#">Me olvide mi Contraseña </a>
+            </div>
+
+            <button (click)="login()"  type="submit" class="btn">Ingresar</button>
+
+            <div class="register-link">
+                <p>Desea registrar una nueva cuenta?<a href="#">Register</a> </p>
+                
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

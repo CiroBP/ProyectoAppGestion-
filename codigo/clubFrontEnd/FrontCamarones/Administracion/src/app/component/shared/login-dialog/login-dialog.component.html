@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Iniciar Sesión</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Usuario" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Contraseña" formControlName="password">
+    </mat-form-field>
+
+    <div *ngIf="loginError" class="error-message">
+      {{ loginError }}
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="getDialogRef().close()">Cancelar</button>
+</mat-dialog-actions>

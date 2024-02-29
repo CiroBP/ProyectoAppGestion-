@@ -1,0 +1,129 @@
+<main class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-tabla">
+                <section id="listado">
+
+                      
+                    <h2 class="mb-4">Lista Socios</h2>
+                    <table class="table table-striped">
+                    
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Contacto</th>
+                                <th scope="col">Fecha de Nacimiento</th>
+                                <th scope="col">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let socio of listaSocios">
+                                <th scope="row">{{ socio.id  }}</th>
+                                <td>{{ socio.nombre }}</td>
+                                <td>{{ socio.apellido }}</td>
+                                <td>{{ socio.categoria}}</td>
+                                <td>{{ socio.contacto }}</td>
+                                
+                                <td>{{ socio.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+                                <td> 
+                                    <button class="btn btn-secondary" (click)="editSocio(socio)">Editar</button>
+                                    <button class="btn btn-secondary"  (click)="delete(socio.id)">Borrar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <div class="col-item">           
+                <section class="mb-5 form">
+                    <form [formGroup]="form">
+                        <div class="container">
+                            <h3 class="mb-3">{{ editingMode ? 'Editar' : 'Agregar' }} Socio</h3>
+                            <div class="bg-light p-4 rounded">
+                                <div class="row mb-3">
+                                    <div class="col-lg-12"> 
+                                        <label for="Nombre" class="form-label">Nombre: </label>
+                                        <input type="text" formControlName="Nombre" class="form-control">
+                                        <div *ngIf="Nombre.invalid && (Nombre.dirty || Nombre.touched)">
+                                            <p *ngIf="Nombre.errors['required']" class="error-message">Campo requerido</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-lg-12"> 
+                                        <label for="Apellido" class="form-label">Apellido: </label>
+                                        <input type="text" formControlName="Apellido" class="form-control">
+                                        <div *ngIf="Apellido.invalid && (Apellido.dirty || Apellido.touched)">
+                                            <p *ngIf="Apellido.errors['required']" class="error-message">Campo requerido</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-lg-12"> 
+                                        <label for="Contacto" class="form-label">Contacto: </label>
+                                        <input type="text" formControlName="Contacto" class="form-control">
+                                        <div *ngIf="Contacto.invalid && (Contacto.dirty || Contacto.touched)">
+                                            <p *ngIf="Contacto.errors['required']" class="error-message">Campo requerido</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="FchNacimiento" class="form-label">Fecha de Nacimiento: </label>
+                                    <input type="date" formControlName="FchNacimiento" class="form-control">
+                                    <div *ngIf="FchNacimiento.invalid && (FchNacimiento.dirty || FchNacimiento.touched)">
+                                        <p *ngIf="FchNacimiento.errors['required']" class="error-message">Campo requerido</p>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-12"> 
+                                      <label for="Deporte" class="form-label">Deporte: </label>
+                                      <select formControlName="Diciplina" class="form-control">
+                                        <option value="Rugby">Rugby</option>
+                                        <option value="Hockey">Hockey</option>
+                                        <option value="Gimnasio">Gimnasio</option>
+                                      </select>
+                                    </div>
+                                <div class="col-lg-12">
+                                     <label for="categoria">Categoría</label>
+                                        <select id="categoria" formControlName="categoria" [(ngModel)]="form.value.categoria">
+                                        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+                                        </select>
+                                        </div>
+                                </div>
+
+                                <hr class="mb-4">
+                                <button type="button" class="btn btn-primary" [disabled]="!form.valid" (click)="addSocio()">
+                                    {{ editingMode ? 'Actualizar' : 'Agregar' }}
+                                  </button>
+                            </div>
+                            </div>
+                            </form>
+                            <div class="rowmt-4">
+                                <div class="filtros">
+                                <label for="disciplinaFilter">Filtrar por Disciplina:</label>
+                                    <select class="disciplinaFilter" [(ngModel)]="selectedDisciplina" (change)="getAll()">
+                                        <option value="">Todas las disciplinas</option>
+                                        <option value="rugby">Rugby</option>
+                                        <option value="hockey">Hockey</option>
+                                    </select>
+                                </div>
+                                <div class="filtros">
+                                    <label for="categoriaFilter">Filtrar por Categoría:</label>
+                                    <select class="categoriaFilter" [(ngModel)]="selectedCategoria" (change)="getAll()">
+                                      <option value="">Todas las categorías</option>
+                                      <!-- Utilizando *ngFor para recorrer la lista de categorías -->
+                                      <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+                                    </select>
+                                  </div>
+                            </div>                     
+                </section>
+            </div>            
+        </div>
+       
+    </div>
+</main>

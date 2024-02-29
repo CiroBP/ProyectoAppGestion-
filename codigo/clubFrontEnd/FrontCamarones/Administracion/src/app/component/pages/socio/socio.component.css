@@ -1,0 +1,169 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    background-color: white;
+  }
+  main{
+    min-height: 100%;
+  }
+.container {
+    max-height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+    
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-item {
+    flex: 1; 
+    margin: 20px; 
+    margin-left: 100px;
+}
+.col-tabla {
+    flex: 3;
+    margin: 20px;
+    min-height: 100vh;
+    margin-left: -250px; /* Ajusta según tu preferencia */
+}
+
+/* Estilo para los campos del formulario */
+.form-label {
+    font-weight: bold;
+    color: white;
+}
+.form {
+    background-color: rgba(97, 91, 91, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    max-height: 600px;
+}
+.form-control {
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.error-message {
+    font-size: small;
+    color: red;
+}
+
+/* Estilo para la tabla */
+.table {
+    background-color: rgba(97, 91, 91, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; /* Borde sutil */
+}
+
+.table tbody tr:hover {
+    background-color: #585252; /* Color de fondo al pasar el mouse*/
+}
+
+/* Estilo para el botón de agregar */
+.btn-primary {
+    background-color: #3c7373; 
+    color: white;
+    border: 2px solid #4a8c74;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #F2C029; 
+    color: black;
+}
+.btn-secondary{
+    padding: 5px 10px;
+    background-color: #3c7373;
+    border-radius: 5px;
+    color: white;
+}
+.btn-secondary:hover{
+    background-color: #FFF9D2; 
+    color: black;
+}
+.filtros{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.filtros label{
+    margin-top: 10px;
+}
+
+.disciplinaFilter {
+    background-color: #3c7373;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.categoriaFilter {
+    background-color: #3c7373;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+
+
+/* Estilos generales */
+/* Estilos para pantallas grandes (768 px para arriba)*/
+@media (min-width: 1050px) {
+    .col-tabla {
+      width: 100%; 
+      margin-left: 1%;
+    }
+  
+    .col-item {
+      width: 70%; 
+      margin-left: 0; 
+    }
+  }
+  
+  /* Estilos para pantallas medianas (entre 576px y 768px) */
+  @media  (min-width: 900px) and (max-width: 1024px) {
+    .col-tabla,
+    .col-item {
+      width: 100%; 
+      margin-left: 0; 
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas (menores a 576px) */
+  @media  (max-width: 890px) {
+    
+    .col-tabla{
+        max-width: 100%; 
+        margin-left: 0; 
+      }
+    .col-item {
+      width: 100%; 
+      margin-left: 0; 
+    }
+  }

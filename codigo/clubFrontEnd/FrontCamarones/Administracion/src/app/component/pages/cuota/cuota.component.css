@@ -1,0 +1,119 @@
+
+.container {
+    max-height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+.row {
+  background-color: rgba(97, 91, 91, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 40%;
+}
+
+.col-tabla {
+    flex: 3;
+    margin: 20px;
+    min-height: 100vh;
+    margin-left: -250px; /* Ajusta según tu preferencia */
+}
+
+.form-label {
+    font-weight: bold;
+    color: white;
+}
+
+.form {
+    background-color: rgba(97, 91, 91, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
+    max-height: 600px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.error-message {
+    font-size: small;
+    color: red;
+}
+
+.table {
+    background-color: rgba(97, 91, 91, 0.8);
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table tbody tr:hover {
+    background-color: #585252;
+}
+
+.form-nombre{
+    margin-top: 20px;
+}
+
+.filtros{
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.disciplinaFilter{
+    background-color: #3c7373;
+    color: white;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 10px;
+    margin-left: 10px;
+}
+.filtro label{
+    padding: 10px;
+}
+
+    @media (min-width: 1050px) {
+    .col-tabla {
+      width: 100%; 
+      margin-left: 1%;
+    }
+  
+    .col-item {
+      width: 70%; 
+      margin-left: 0; 
+    }
+  }
+  
+
+    @media  (min-width: 900px) and (max-width: 1024px) {
+    .col-tabla,
+    .col-item {
+      width: 100%; 
+      margin-left: 0; 
+    }
+  }
+  
+
+    @media  (max-width: 890px) {
+    
+    .col-tabla{
+        max-width: 100%; 
+        margin-left: 0; 
+      }
+    .col-item {
+      width: 100%; 
+      margin-left: 0; 
+    }
+  }

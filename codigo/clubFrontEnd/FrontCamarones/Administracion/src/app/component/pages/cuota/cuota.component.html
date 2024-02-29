@@ -1,0 +1,93 @@
+<div class="container">
+  <h2>Buscar Socio</h2>
+  
+  <div class="row mt-4">
+    <div class="filtros">
+      <label for="disciplinaFilter">Filtrar por Disciplina:</label>
+      <select class="disciplinaFilter" [(ngModel)]="disciplinaFiltro" (change)="filtrarPorDisciplina()">
+        <option value="">Todas las disciplinas</option>
+        <option value="rugby">Rugby</option>
+        <option value="hockey">Hockey</option>
+        <option value="gimnasio">Gimnasio</option>
+      </select>
+    </div>
+    <form class="form-nombre">
+    <mat-form-field>
+      <mat-label>Nombre del Socio</mat-label>
+      <input 
+      type="text" 
+      matInput 
+      placeholder="Buscar socio..."
+      [matAutocomplete]="auto"
+      [formControl] = "miformControl" 
+      (input)="filtrarSocios($event)"
+      >
+      <mat-autocomplete requireSelection #auto="matAutocomplete" (optionSelected)="seleccionarSocio($event.option.value)">
+        <mat-option *ngFor="let socio of opcionesFiltradas" [value]="socio">
+          {{ socio.nombre }} {{ socio.apellido }}-{{ socio.diciplina }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+  </form>
+
+  <div *ngIf="precioCuotas">
+    <div>
+      <label for="">Precio de la primera cuota: {{ precioCuotas.length > 0 ? precioCuotas[0].precio : 'N/A' }}</label>
+    </div>
+  
+    <div class="mt-3">
+      <label for="nuevoPrecio">Nuevo Precio de la Cuota:</label>
+      <input type="number" [(ngModel)]="nuevoPrecio" name="nuevoPrecio" required>
+      <button class="btn-primary"  (click)="cambiarPrecioCuota()" [disabled]="precioCuotas.length === 0">Cambiar Precio</button>
+    </div>
+  </div>
+</div>
+    <div *ngIf="socioSeleccionado">
+      <div class="datosSocio">
+      <h2>Datos del Socio</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Disciplina</th>
+        </tr>
+        <tr>
+          <td>{{ socioSeleccionado.id }}</td>
+          <td>{{ socioSeleccionado.nombre }}</td>
+          <td>{{ socioSeleccionado.diciplina }}</td>
+        </tr>
+      </table>
+      </div>
+
+      <div class="CuotasSocio">
+      <h2>Cuotas de {{ socioSeleccionado.nombre }}</h2>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha de Vencimiento</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cuota of socioSeleccionado.cuotas">
+            <td>{{ cuota.id }}</td>
+            <td>{{ cuota.fechaVencimiento | date:'dd/MM/yyyy' }}</td>
+            <td>{{ cuota.precioCuota.precio }}</td>
+            <td>{{ cuota.pagada ? 'Pagada' : 'Sin Pagar' }}
+              <span *ngIf="cuota.pagada"> - {{ cuota.cantidadPagada ? 'Cantidad Pagada' : 'Cantidad no Pagada' }}</span>
+            <td>
+              <button>Editar</button>
+              <button class="btn-primary" (click)="eliminarCuota(cuota.id)">Eliminar</button>
+              <button class="btn-primary" (click)="abrirDialogoPago(cuota)">Pagar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+</div>
